@@ -23,11 +23,29 @@ export default function Products() {
     return matchesSearch && matchesBrand;
   });
 
-  const handleShare = (item) => {
-    const shareText = `Check out ${item.name} - ${item.specs} on Write Comspares!`;
-    navigator.clipboard.writeText(window.location.href);
-    setCopiedId(item.id);
-    setTimeout(() => setCopiedId(null), 2000);
+  const handleShare = async (item) => {
+    const shareData = {
+      title: 'Write Comspares',
+      text: `Check out ${item.name} - ${item.specs} on Write Comspares!`,
+      url: window.location.href,
+    };
+
+    try {
+      // Check if native mobile/browser share is supported
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        // Fallback to clipboard
+        await navigator.clipboard.writeText(window.location.href);
+        setCopiedId(item.id);
+        setTimeout(() => setCopiedId(null), 2000);
+      }
+    } catch (err) {
+      // Fallback if clipboard fails
+      navigator.clipboard.writeText(window.location.href);
+      setCopiedId(item.id);
+      setTimeout(() => setCopiedId(null), 2000);
+    }
   };
 
   return (
@@ -125,7 +143,7 @@ export default function Products() {
                     <button 
                       onClick={() => handleShare(item)}
                       title="Share Product"
-                      className="px-3 py-2.5 bg-slate-800 hover:bg-slate-700 font-semibold rounded-xl transition border border-slate-700 flex items-center justify-center cursor-pointer text-slate-300"
+                      className="px-3 py-2.5 bg-slate-800 hover:bg-slate-700 font-semibold rounded-xl transition border border-slate-700 flex items-center justify-center cursor-pointer text-slate-300 relative"
                     >
                       {copiedId === item.id ? <Check size={18} className="text-emerald-400" /> : <Share2 size={18} />}
                     </button>
