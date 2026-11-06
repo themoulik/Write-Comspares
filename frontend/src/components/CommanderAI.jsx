@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 export default function CommanderAI() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { sender: 'ai', text: 'Hello! I am CommanderAI. Ask me anything about mobile or laptop comparisons!' }
+    { sender: 'ai', text: 'Hello! Welcome to Write Comspares.' }
   ]);
   const [input, setInput] = useState('');
   const messagesEndRef = useRef(null);
@@ -26,21 +26,11 @@ export default function CommanderAI() {
     setMessages(prev => [...prev, { sender: 'user', text: userMsg }]);
     setInput('');
 
-    // Mock AI intelligent response for showcase
+    // Response indicating the AI feature is currently under active development
     setTimeout(() => {
-      let aiReply = "That's a great question! Based on my AI analysis, both devices offer stellar performance, but it depends on your budget.";
-      
-      const lowerMsg = userMsg.toLowerCase();
-      if (lowerMsg.includes('samsung') || lowerMsg.includes('iphone')) {
-        aiReply = "Both flagship phones have top-tier cameras and processors. The iPhone excels in video recording, while the Samsung offers versatile zoom and S-Pen features.";
-      } else if (lowerMsg.includes('macbook') || lowerMsg.includes('laptop')) {
-        aiReply = "MacBook Air M3 is unbeatable for battery life and silent operation, whereas Windows gaming laptops offer high refresh rates and dedicated GPUs.";
-      } else if (lowerMsg.includes('hello') || lowerMsg.includes('hi')) {
-        aiReply = "Hello Moulik! How can CommanderAI help you compare gadgets today?";
-      }
-
+      const aiReply = "We are currently working on this feature! CommanderAI will be live very soon to assist you with device comparisons.";
       setMessages(prev => [...prev, { sender: 'ai', text: aiReply }]);
-    }, 1000);
+    }, 800);
   };
 
   return (
@@ -75,8 +65,8 @@ export default function CommanderAI() {
                 </div>
                 <div>
                   <h3 className="font-bold text-sm">CommanderAI</h3>
-                  <span className="text-xs text-emerald-400 flex items-center gap-1">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Online Showcase
+                  <span className="text-xs text-amber-400 flex items-center gap-1">
+                    <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span> Under Development
                   </span>
                 </div>
               </div>
@@ -96,7 +86,7 @@ export default function CommanderAI() {
                   className={`flex gap-2 items-start ${msg.sender === 'user' ? 'flex-row-reverse' : ''}`}
                 >
                   <div className={`p-1.5 rounded-full text-xs ${msg.sender === 'user' ? 'bg-blue-600 text-white' : 'bg-slate-800 text-blue-400 border border-slate-700'}`}>
-                    {msg.sender === 'user' ? <User size= {14} /> : <Bot size={14} />}
+                    {msg.sender === 'user' ? <User size={14} /> : <Bot size={14} />}
                   </div>
                   <div className={`max-w-[75%] p-3 rounded-2xl text-sm ${msg.sender === 'user' ? 'bg-blue-600 text-white rounded-tr-none' : 'bg-slate-800 text-slate-200 border border-slate-700/60 rounded-tl-none'}`}>
                     {msg.text}
