@@ -1,32 +1,33 @@
-import { Mail, User, Linkedin, Github } from 'lucide-react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import Products from './pages/Products';
+import ComingSoon from './pages/ComingSoon';
+import Insurance from './pages/Insurance';
+import Support from './pages/Support';
+import CommanderAI from './components/CommanderAI';
 
-export default function Footer() {
+function App() {
   return (
-    <footer className="bg-slate-950 text-gray-300 py-12 mt-16 border-t border-slate-800">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-10">
-          <h3 className="text-lg font-bold text-white mb-3">About Moulik Das</h3>
-          <p className="text-slate-400 text-sm leading-relaxed">
-            I am currently pursuing a BCA(H) degree at Techno College Hooghly under MAKAUT, with a strong passion for web development, software engineering, cloud computing, and AI-powered applications. I enjoy building practical projects, experimenting with emerging technologies, and sharpening my problem-solving skills through hands-on development.
-          </p>
-        </div>
+    <Router>
+      <div className="flex flex-col min-h-screen bg-slate-950 text-white relative">
+        <Navbar />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/category/:type" element={<Products />} />
+            <Route path="/coming-soon" element={<ComingSoon />} />
+            <Route path="/insurance" element={<Insurance />} />
+            <Route path="/support" element={<Support />} />
+          </Routes>
+        </main>
         
-        <div className="flex justify-center items-center gap-6 mb-6 flex-wrap">
-          <div className="flex items-center gap-2 text-sm">
-            <User size={18} className="text-blue-500"/> 
-            <span>Moulik Das</span>
-          </div>
-          <a href="mailto:themoulikofficial@gmail.com" className="flex items-center gap-2 text-sm hover:text-blue-400 transition">
-            <Mail size={18} className="text-blue-500"/> 
-            <span>themoulikofficial@gmail.com</span>
-          </a>
-          <a href="https://github.com/themoulik" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-sm hover:text-blue-400 transition">
-            <Github size={18} className="text-blue-500"/>
-            <span>github.com/themoulik</span>
-          </a>
-        </div>
-        <p className="text-xs text-slate-600 text-center">© {new Date().getFullYear()} Write Comspares. All rights reserved.</p>
+        <CommanderAI />
+        <Footer />
       </div>
-    </footer>
+    </Router>
   );
 }
+
+export default App;
