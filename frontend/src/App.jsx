@@ -4,7 +4,9 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import ComingSoon from './pages/ComingSoon';
-import CommanderAI from './components/CommanderAI'; // CommanderAI আমদানি করা হলো
+import Insurance from './pages/Insurance';
+import Support from './pages/Support';
+import CommanderAI from './components/CommanderAI';
 
 function App() {
   return (
@@ -16,12 +18,12 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/category/:type" element={<Products />} />
             <Route path="/coming-soon" element={<ComingSoon />} />
+            <Route path="/insurance" element={<Insurance />} />
+            <Route path="/support" element={<Support />} />
           </Routes>
         </main>
         
-        {/* ফ্লোটিং এআই চ্যাট উইন্ডো */}
         <CommanderAI />
-        
         <Footer />
       </div>
     </Router>
