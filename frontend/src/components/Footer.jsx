@@ -4,8 +4,8 @@ export default function Footer() {
   return (
     <footer className="bg-slate-950 text-gray-300 py-12 mt-16 border-t border-slate-800">
       <div className="container mx-auto px-4">
-        {/* LinkedIn Profile About Section */}
-        <div className="max-w-3xl mx-auto bg-slate-900/60 border border-slate-800 p-6 md:p-8 rounded-2xl mb-10 text-left">
+        {/* About Section */}
+        <div className="max-w-3xl mx-auto bg-slate-900/60 border border-slate-800 p-6 md:p-8 rounded-2xl mb-10 text-left shadow-xl">
           <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
             <User className="text-blue-500" size={22} /> About Moulik Das
           </h3>
@@ -15,7 +15,7 @@ export default function Footer() {
           </p>
 
           <p className="text-slate-300 text-sm leading-relaxed mb-4">
-            My technical foundation includes HTML, CSS, JavaScript, Python, PHP, SQL/MySQL, Supabase, Git, and GitHub. I am also continuously expanding my knowledge in AWS, Linux, networking, cybersecurity, and AI integration to build robust, modern digital solutions.
+            My technical foundation includes React, JSX, Node.js, Python, C++, SQL/MySQL, Supabase, Git, and GitHub. I am also continuously expanding my knowledge in AWS, Linux, networking, cybersecurity, and AI integration to build robust, modern digital solutions.
           </p>
 
           <p className="text-slate-300 text-sm leading-relaxed mb-6">
@@ -23,12 +23,12 @@ export default function Footer() {
           </p>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/80 mb-6">
-            <h4 className="text-xs font-bold text-blue-400 uppercase tracking-wider mb-2">Core Skills</h4>
-            <ul className="text-xs text-slate-400 space-y-1">
-              <li><strong className="text-slate-300">• Web Development:</strong> HTML, CSS, JavaScript, PHP</li>
-              <li><strong className="text-slate-300">• Programming:</strong> Python</li>
-              <li><strong className="text-slate-300">• Database & Backend Tools:</strong> SQL, MySQL, Supabase</li>
-              <li><strong className="text-slate-300">• Development Tools:</strong> Git, GitHub</li>
+            <h4 className="text-xs font-bold text-blue-400 uppercase tracking-wider mb-2">Core Skills & Tech Stack</h4>
+            <ul className="text-xs text-slate-400 space-y-1.5">
+              <li><strong className="text-slate-300">• Frontend Development:</strong> React, JSX, Tailwind CSS</li>
+              <li><strong className="text-slate-300">• Backend Tools:</strong> Node.js, PHP, Supabase</li>
+              <li><strong className="text-slate-300">• Programming Languages:</strong> Python, C++, JavaScript (largely used for game development)</li>
+              <li><strong className="text-slate-300">• Database & Tools:</strong> SQL, MySQL, Git, GitHub</li>
               <li><strong className="text-slate-300">• Emerging Areas:</strong> AI Integration, AWS, Cloud Computing, Linux, Networking, Cybersecurity</li>
             </ul>
           </div>
